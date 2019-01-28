@@ -1,0 +1,44 @@
+<html>
+<body>
+ <head>
+ <title>Crime Map</title>
+ </head>
+ <h1>Crime Map</h1>
+ <form action="/add" method="POST">
+ <input type="text" name="userinput">
+ <input type="submit" value="Submit">
+ </form>
+ <a href="/clear">clear</a>
+ <table>
+     <thead>
+     <tr>
+         <th>ID</th>
+         <th>Latitude</th>
+         <th>Longitude</th>
+         <th>Fecha</th>
+         <th>Categoris</th>
+         <th>Description</th>
+         <th>Update</th>
+     </tr>
+     </thead>
+     <tbody>
+     <tr>
+     {{ crimes }}
+         {% for userinput in data %}
+                 <th>{{userinput['id']}}</th>
+                 <th>{{userinput['latitude']}}</th>
+                 <th>{{userinput['longitude']}}</th>
+                 <th>{{userinput['date']}}</th>
+                 <th>{{userinput['category']}}</th>
+                 <th>{{userinput['description']}}</th>
+                 <th>{{userinput['updated_at']}}</th>
+
+         {% endfor %}
+     </tr>
+
+     </tbody>
+ </table>
+
+
+</body>
+</html>
